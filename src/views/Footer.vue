@@ -1,10 +1,10 @@
 <template lang="html">
   <mu-paper class="footer">
-    <mu-bottom-nav :value="bottomNav" shift @change="handleChange">
-      <mu-bottom-nav-item value="movies" title="Movies" icon="movies"/>
-      <mu-bottom-nav-item value="music" title="Music" icon="music"/>
-      <mu-bottom-nav-item value="books" title="Books" icon="books"/>
-      <mu-bottom-nav-item value="pictures" title="Pictures" icon="pictures"/>
+    <mu-bottom-nav :value="bottomNav" @change="handleChange">
+      <mu-bottom-nav-item value="home" title="首页" icon="home"/>
+      <mu-bottom-nav-item value="store" title="门店" icon="store"/>
+      <mu-bottom-nav-item value="data" title="数据" icon="data"/>
+      <mu-bottom-nav-item value="me" title="我" icon="me"/>
     </mu-bottom-nav>
   </mu-paper>
 </template>
@@ -14,8 +14,7 @@ export default {
   name:'footer',
   data(){
     return{
-      bottomNav: 'movies',
-      bottomNavColor: 'movies'
+      bottomNav: 'home'
     }
   },
   methods: {

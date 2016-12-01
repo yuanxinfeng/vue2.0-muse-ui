@@ -1,6 +1,6 @@
 # router
 
-> A Vue.js project
+> 使用vue2.0+vue-router 和 muse-ui
 
 ## Build Setup
 
