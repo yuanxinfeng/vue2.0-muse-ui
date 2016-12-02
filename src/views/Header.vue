@@ -1,5 +1,5 @@
 <template lang="html">
-  <mu-appbar title="header">
+  <mu-appbar title="header" >
     <!-- 左边按钮 -->
     <mu-icon-button icon='header' slot="left" @click="toggle(true)"/>
     <mu-drawer :open="open" :docked="docked" @close="toggle()">
@@ -59,7 +59,7 @@ export default {
 .back{
   background-color: #fff;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
 }
 </style>

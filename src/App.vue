@@ -2,7 +2,10 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <Header></Header>
-    <Count></Count>
+
+    <!-- <Count></Count> -->
+    
+    <router-view></router-view>
     <Footer></Footer>
   </div>
 </template>
@@ -11,6 +14,7 @@
 import Header from './views/Header'
 import Count from './views/Count'
 import Footer from './views/Footer'
+import Hello from './components/Hello'
 export default {
   name: 'app',
   data(){
@@ -21,7 +25,8 @@ export default {
   components: {
     Header,
     Count,
-    Footer
+    Footer,
+    Hello
   }
 }
 </script>

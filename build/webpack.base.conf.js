@@ -27,7 +27,8 @@ module.exports = {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
-      'muse-components': 'muse-ui/src'
+      'muse-components': 'muse-ui/src',
+
     }
   },
   resolveLoader: {

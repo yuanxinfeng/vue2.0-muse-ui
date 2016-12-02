@@ -1,10 +1,11 @@
 <template lang="html">
   <mu-paper class="footer">
     <mu-bottom-nav :value="bottomNav" @change="handleChange">
-      <mu-bottom-nav-item value="home" title="首页" icon="home"/>
-      <mu-bottom-nav-item value="store" title="门店" icon="store"/>
-      <mu-bottom-nav-item value="data" title="数据" icon="data"/>
-      <mu-bottom-nav-item value="me" title="我" icon="me"/>
+      <router-link to="/component/home"><mu-bottom-nav-item value="home" title="首页" icon="home"/></router-link>
+      <router-link to="/component/store"><mu-bottom-nav-item value="store" title="门店" icon="store"/></router-link>
+      <router-link to="/component/data"><mu-bottom-nav-item value="data" title="数据" icon="data"/></router-link>
+      <router-link to="/component/me"><mu-bottom-nav-item value="me" title="我" icon="me"/></router-link>
+      <!-- v-link='{ path: '/component/home'}' -->
     </mu-bottom-nav>
   </mu-paper>
 </template>
