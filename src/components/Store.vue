@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    sdsadasdada
+    <h1>这是门店页面</h1>
   </div>
 </template>
 
