@@ -28,6 +28,8 @@ export default {
 
   },
   mounted () {//http://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg////http://youthclubtest.digilinx.net.cn/script/0001/process_inc_gzh.php
+    console.log(this.$store.state.data)
+    // this.list.push(this.$store.state.data)
     this.$http.jsonp('http://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg', {
       params: {
         g_tk:5381,
@@ -46,6 +48,7 @@ export default {
       },
       jsonp: 'jsonpCallback'}
     ).then((response) => {
+      this.$store.state.data = response.data.songlist
       const list = response.data.songlist
       for (var i = 0; i < 20; i++) {
         this.list.push(list[i])

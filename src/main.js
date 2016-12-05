@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
 import VueResource  from 'vue-resource'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
@@ -9,6 +10,7 @@ import 'muse-ui/dist/muse-ui.css'
 Vue.use(MuseUI)
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(Vuex)
 // 1. 定义（路由）组件。
 // 可以从其他文件 import 进来
 import Count from './views/Count'
@@ -18,6 +20,11 @@ import Store from './components/Store'
 import Data from './components/Data'
 import Me from './components/Me'
 
+const store = new Vuex.Store({
+  state:{
+    data:[]
+  }
+})
 // 2. 定义路由
 // 每个路由应该映射一个组件。 其中"component" 可以是
 // 通过 Vue.extend() 创建的组件构造器，
@@ -44,6 +51,7 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
