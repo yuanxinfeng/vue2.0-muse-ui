@@ -1,5 +1,5 @@
 <template lang="html">
-  <mu-appbar title="header" >
+  <mu-appbar title="header" class="back">
     <!-- 左边按钮 -->
     <mu-icon-button icon='header' slot="left" @click="toggle(true)"/>
     <mu-drawer :open="open" :docked="docked" @close="toggle()">

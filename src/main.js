@@ -22,7 +22,8 @@ import Me from './components/Me'
 
 const store = new Vuex.Store({
   state:{
-    data:[]
+    data:[],
+    isLogin:false
   }
 })
 // 2. 定义路由
@@ -35,7 +36,7 @@ const routes = [
   { path: '/component/home', component: Home },
   { path: '/component/store', component: Store },
   { path: '/component/data', component: Data },
-  { path: '/component/me', component: Me }
+  { path: '/component/me', component: Me },
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置

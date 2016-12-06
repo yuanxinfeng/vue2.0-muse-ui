@@ -7,9 +7,13 @@
   <div class="demo-refresh-container">
     <mu-refresh-control :refreshing="refreshing" :trigger="trigger" @refresh="refresh"/>
     <mu-list>
-      <template v-for="item in this.$store.state.data">
-        <mu-list-item disableRipple :title="item.data.albumname"/>
-        <mu-divider/>
+      <template v-for="item in list">
+        <!-- <mu-list-item disableRipple :title="item.data.albumname"/>
+        <mu-divider/> -->
+        <mu-list-item :title="item.data.albumname" @click="click">
+          <mu-avatar  slot="leftAvatar"/>
+          <!-- <mu-icon value="chat_bubble" slot="right"/> -->
+        </mu-list-item>
       </template>
     </mu-list>
     <mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore"/>
@@ -21,7 +25,7 @@ export default {
   data () {
     return {
       list:[],
-      num: 5,
+      num: 20,
       countRefresh:0,//记录刷新次数
       countLoadMore:0,//记录加载次数
       refreshing: false,
@@ -31,24 +35,36 @@ export default {
     }
 
   },
+  computed: {
+    count () {
+      return this.$store.state.data
+    }
+  },
   mounted(){
-    // console.log(JSON.stringify(this.$store.state.data))
-    // const list = JSON.stringify(this.$store.state.data)
-    // for (var i = 0; i < 20; i++) {
-    //   this.list.push(list[i])
-    // }
+    // console.log(this.count);
+    const arr = this.count
+    // console.log(arr.length);
+    if (arr.length !== 0) {
+      for (let i = 0; i < 20; i++) {
+        console.log(JSON.stringify(arr[i]));
+        this.list.push(arr[i])
+      }
+    }
+    this.trigger = this.$el
+    this.scroller = this.$el
   },
   methods: {
     refresh:function() {
       // this.loading = false
+      console.log('走了？');
       this.refreshing = true
       setTimeout(() => {
-        // const list = []
+        const list = []
         // ++this.countRefresh
-        // for (let i = this.num; i < this.num + 15; i++) {
-        //   list.push('这是我第' + (this.countRefresh) + '次下拉刷新！')
-        // }
-        // this.list = list
+        for (let i = 0; i < 20; i++) {
+          list.push(this.count[i])
+        }
+        this.list = list
         // this.num += 10
         // this.loading = true
         this.refreshing = false
@@ -59,13 +75,17 @@ export default {
       // this.refreshing = false
       // ++this.countLoadMore
       setTimeout(() => {
-      //   for (let i = this.num; i < this.num + 1; i++) {
-      //     this.list.push('这是我第' + (this.countLoadMore) + '次上拉加载！')
-      //   }
-      //   this.num += 10
+        for (let i = this.num; i < this.num + 1; i++) {
+          console.log(JSON.stringify(this.count[i]))
+          this.list.push(this.count[i])
+        }
+        this.num += 1
         this.loading = false
         // this.refreshing = true
       }, 1000)
+    },
+    click(){
+      console.log('aaa');
     }
   }
 }
