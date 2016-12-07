@@ -25,6 +25,8 @@ import Header from './views/Header'
 import Count from './views/Count'
 import Footer from './views/Footer'
 import Hello from './components/Hello'
+import SongInfo from './components/SongInfo'
+
 export default {
   name: 'app',
   data(){
@@ -50,7 +52,8 @@ export default {
     Header,
     Count,
     Footer,
-    Hello
+    Hello,
+    SongInfo
   },
   methods:{
     login(){

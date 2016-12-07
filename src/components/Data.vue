@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="demo-refresh-container imgSpinning">
+  <div class="demo-refresh-container imgSpinning" >
     <mu-refresh-control :refreshing="refreshing" :trigger="trigger" @refresh="refresh"/>
     <mu-list>
       <template v-for="(item,index) in list">
@@ -16,7 +16,7 @@
         <mu-list-item :title="dataName" >
             <mu-avatar class="imgSpinning" :src="dataimg" slot="leftAvatar"/>
             <!-- <img v-bind:src="dataimg" class="imgSpinning" style="width:40px;height:40px"> -->
-          <audio v-bind:src="dataUrl" autoplay="autoplay"></audio>
+          <audio id="musicPlay" v-bind:src="dataUrl" autoplay="autoplay"></audio>
         </mu-list-item>
       </router-link>
     </div>
@@ -123,7 +123,10 @@ export default {
       this.dataName = this.list[index].data.singer[0].name +'-'+ this.list[index].data.albumname
       this.dataUrl = 'http://ws.stream.qqmusic.qq.com//' + this.list[index].data.songid + '.m4a?fromtag=46'
       this.dataimg = 'http://y.gtimg.cn/music/photo_new/T002R300x300M000'+this.list[index].data.albummid+'.jpg?max_age=2592000'
-
+      setTimeout(()=>{
+        document.getElementById('musicPlay').play();
+        console.log(document.getElementById('musicPlay').play());
+      },500)
     }
   }
 }

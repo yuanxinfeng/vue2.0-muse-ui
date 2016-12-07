@@ -19,7 +19,7 @@ import Home from './components/Home'
 import Store from './components/Store'
 import Data from './components/Data'
 import Me from './components/Me'
-
+import SongInfo from './components/SongInfo'
 const store = new Vuex.Store({
   state:{
     data:[],
@@ -37,6 +37,7 @@ const routes = [
   { path: '/component/store', component: Store },
   { path: '/component/data', component: Data },
   { path: '/component/me', component: Me },
+  { path: '/component/songInfo', component: SongInfo },
 ]
 
 // 3. 创建 router 实例，然后传 `routes` 配置
